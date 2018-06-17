@@ -1,6 +1,6 @@
 {
   "name": "react-native-minimal-settings",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "A minimalistic setting for your React Native Application",
   "main": "index.js",
   "scripts": {
