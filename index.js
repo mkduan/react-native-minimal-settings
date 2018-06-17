@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Text, View, Switch, Dimensions } from 'react-native';
+import {Text, View, Switch, Dimensions, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './Style/styles.js';
 import disabledStyles from './Style/disabledStyles.js';
 
 let {width, height } = Dimensions.get('window');
+let statusBarHeight =  StatusBar.currentHeight;
 
 export class SwitchButton extends React.Component{
     render() {
         const {title, description, toggleSwitch, switchValue, blockIcon, iconColor} = this.props;
-    
+
         if (this.props.isDisabled) {
           return (
             <View style = {styles.settingComponent}>
@@ -41,7 +42,7 @@ export class SwitchButton extends React.Component{
             </View>
           );
         }
-    
+
         return (
           <View style = {styles.settingComponent}>
             <Ionicons name={blockIcon} size={30} color={iconColor} />
@@ -72,6 +73,18 @@ export class SwitchButton extends React.Component{
     }
 }
 
+export class SettingTitle extends React.Component{
+  render() {
+    const {title, titleBackgroundColor, titleColor} = this.props;
+
+    <View style = {{ paddingTop: statusBarHeight+10, backgroundColor: {titleBackgroundColor}, justifyContent: 'flex-end'}}>
+      <Text style= {{left: 20, bottom: 10, color: {titleColor}, fontSize: 30}}>
+        {title}
+      </Text>
+    </View>
+  }
+}
+
 SwitchButton.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -81,3 +94,9 @@ SwitchButton.propTypes = {
     iconColor: PropTypes.string.isRequired,
     isDisabled: PropTypes.bool,
   };
+
+  SettingTitle.propTypes = {
+    title: PropTypes.string.isRequired,
+    titleBackgroundColor: PropTypes.string.isRequired,
+    titleColor: PropTypes.string.isRequired,
+  }
