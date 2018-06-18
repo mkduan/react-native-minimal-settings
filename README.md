@@ -168,6 +168,6 @@ Container component responsible for rendering the boolean settings block.
 - `toggleSwitch` (required): Callback for when the switch button gets toggled.
 - `switchValue` (required): Value of the switch button.
 - `description` (required): Description of the function of the switch button.
-- `blockIcon`  (required): Icon of the preference block taken from [Expo's vector icon directory] (https://expo.github.io/vector-icons/).
+- `blockIcon`  (required): Icon of the preference block taken from [Expo's vector icon directory](https://expo.github.io/vector-icons/)
 - `iconColor` (required): The color of the icon.
 - `isDisabled` (optional): Disables the entire preference block.
