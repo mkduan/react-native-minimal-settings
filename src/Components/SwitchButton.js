@@ -5,8 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import styles from '../Style/styles.js';
 import disabledStyles from '../Style/disabledStyles.js';
 
-let {width, height } = Dimensions.get('window');
-
 export default class SwitchButton extends React.Component{
     render() {
         const {title, description, toggleSwitch, switchValue, blockIcon, iconColor} = this.props;
