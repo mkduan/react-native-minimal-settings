@@ -12,7 +12,7 @@ export default class SwitchButton extends React.Component{
         if (this.props.isDisabled) {
           return (
             <View style = {styles.settingComponent}>
-              <Ionicons name={blockIcon} size={30} color={'rgba(128, 128, 128, 0.5)'} />
+              <Ionicons name={blockIcon} size={30} color={iconColor} />
               <View style={styles.settingBlock}>
                 <View style={styles.settingFirstLine}>
                   <Text

@@ -13,7 +13,7 @@ and much more to come!
 
 ## Demo
 
-<img src="./example/examplegif-resize.gif" width="360">
+<img src="./example/smokeygif-resize.gif" width="360">
 
 ## Installation
 
@@ -49,7 +49,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1, backgroundColor: '#F5F5F5'}}>
         <SettingTitle
           title = {"Settings"}
           titleBackgroundColor = {'#746965'}
@@ -65,7 +65,7 @@ export default class App extends React.Component {
           title = {'Tesla'}
           toggleSwitch = {this.teslaSwitch}
           switchValue = {this.state.teslaValue}
-          description = {"Tesla's is amazing and so is the their Chairman & CEO Elon Musk."}
+          description = {"Teslas are amazing and so is the their Chairman & CEO Elon Musk."}
           blockIcon = {"ios-car"}
           iconColor = {"red"}
         />
