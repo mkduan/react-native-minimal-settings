@@ -3,9 +3,8 @@ import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../Style/styles.js';
-import disabledStyles from '../Style/disabledStyles.js';
 
-export default class DatePicker extends React.Component{
+export default class StringCategory extends React.Component{
 
     render() {
         const {title, description, initialValue, blockIcon, iconColor, blockAction} = this.props;
@@ -15,17 +14,19 @@ export default class DatePicker extends React.Component{
               <View style={styles.settingBlock}>
                 <View style={styles.settingFirstLine}>
                   <Text
-                    style={disabledStyles.settingTitle}
+                    style={styles.settingTitle}
                     numberOfLines={1}>
                       {title}
                   </Text>
                   <View
                     style={styles.settingValue}>
-                      {initialValue}
+                      <Text>
+                        {initialValue}
+                      </Text>
                   </View>
                 </View>
                 <Text
-                  style={disabledStyles.settingSecondLine}
+                  style={styles.settingSecondLine}
                   numberOfLines={2}
                 >
                   {description}
@@ -36,7 +37,7 @@ export default class DatePicker extends React.Component{
     }
 }
 
-DatePicker.propTypes = {
+StringCategory.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     blockIcon: PropTypes.string.isRequired,
