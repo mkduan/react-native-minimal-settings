@@ -42,6 +42,6 @@ StringCategory.propTypes = {
     description: PropTypes.string.isRequired,
     blockIcon: PropTypes.string.isRequired,
     iconColor: PropTypes.string.isRequired,
-    initialValue: PropTypes.string.isRequired,
+    initialValue: PropTypes.any.isRequired,
     blockAction: PropTypes.func.isRequired,
   };

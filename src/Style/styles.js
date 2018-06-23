@@ -19,13 +19,14 @@ var styles = StyleSheet.create({
     },
     settingTitle: {
       height: 20,
-      width: (width-60)*(4/5),
+      width: (width-60)*(3/5),
       fontSize: 17,
       fontWeight: 'normal'
     },
     settingValue: {
       height: 20,
-      width: (width-60)*(1/5),
+      width: (width-60)*(2/5),
+      alignItems: 'flex-end',
     },
     settingSecondLine: {
       height:40,

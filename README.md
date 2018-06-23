@@ -13,7 +13,7 @@ and much more to come!
 
 ## Demo
 
-<img src="./example/smokeygif-resize.gif" width="360">
+<img src="./example/stringcategorygif-resize.gif" width="360">
 
 ## Installation
 
@@ -26,7 +26,8 @@ npm i react-native-minimal-settings
 ```js
 import React from 'react';
 import { View } from 'react-native';
-import {CategoryTitle, DividingLine, SettingTitle, SwitchButton} from 'react-native-minimal-settings';
+import {CategoryTitle, DividingLine, SettingTitle, SwitchButton, StringCategory} from 'react-native-minimal-settings';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class App extends React.Component {
 
@@ -35,6 +36,8 @@ export default class App extends React.Component {
     this.state = {
        teslaValue: false,
        pizzaValue: false,
+       isDateTimePickerVisible: false,
+       stringCategoryValue: 'Something',
     }
  }
 
@@ -46,6 +49,25 @@ export default class App extends React.Component {
    //Unfortunately pizza disappointed me so it's disabled
    this.setState({pizzaValue: value});
  }
+
+ _showDateTimePicker = () => {
+     this.setState({ isDateTimePickerVisible: true });
+ }
+
+ _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+  _handleDatePicked = (time) => {
+    console.log('A time has been picked: ', time);
+    this.setState({stringCategoryValue: this._createTime(time.getHours(), time.getMinutes())});
+    this._hideDateTimePicker();
+  };
+
+  _createTime = (hours, minutes) => {
+    if(minutes < 10) {
+      minutes = '0'+minutes;
+    }
+    return hours + ':'+minutes;
+  }
 
   render() {
     return (
@@ -77,6 +99,20 @@ export default class App extends React.Component {
           blockIcon = {"md-pizza"}
           iconColor = {"skyblue"}
           isDisabled = {true}
+        />
+        <StringCategory
+          title = {'Time'}
+          description = {'Use other libraries with the minimal settings library to make better applications!'}
+          blockIcon = {'ios-time'}
+          iconColor = {'#2E4053'}
+          initialValue = {this.state.stringCategoryValue}
+          blockAction = {this._showDateTimePicker}
+        />
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={this._handleDatePicked}
+          onCancel={this._hideDateTimePicker}
+          mode = {'time'}
         />
       </View>
     );
@@ -171,3 +207,29 @@ Container component responsible for rendering the boolean settings block.
 - `blockIcon`  (required): Icon of the preference block taken from [Expo's vector icon directory](https://expo.github.io/vector-icons/)
 - `iconColor` (required): The color of the icon.
 - `isDisabled` (optional): Disables the entire preference block.
+
+### `<StringCategory />`
+
+Container component responsible for rendering the value of the category as a text.
+
+#### Example
+
+```js
+<StringCategory
+  title = {'Name'}
+  description = {'Show the name that the user set as their preference in this block!'}
+  blockIcon = {'ios-happy'}
+  iconColor = {'#2E4053'}
+  initialValue = {this.state.usersName}
+  blockAction = {this._enterUsersNameModal}
+/>
+```
+
+#### Props
+
+- `title`: Title of the preference block.
+- `description` (required): Description of the function of the category.
+- `blockIcon`  (required): Icon of the preference block taken from [Expo's vector icon directory](https://expo.github.io/vector-icons/)
+- `iconColor` (required): The color of the icon.
+- `initialValue` (required): Displays the value of the category block.
+- `blockAction` (required): Function handling the action of pressing on the category.
