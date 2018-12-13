@@ -1,4 +1,8 @@
-# React Native Minimal Settings
+<p align="center">
+<img src="src/banner.png" alt="logo" width="550"/>
+</p>
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ad9ebda1090f408194bfc6c1acdba662)](https://www.codacy.com/app/mkduan/react-native-minimal-settings?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mkduan/react-native-minimal-settings&amp;utm_campaign=Badge_Grade)
 
 A cross-platform Settings component for React Native.
 
